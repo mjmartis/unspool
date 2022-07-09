@@ -21,15 +21,15 @@ readonly seg_count=$(
          -f segment -segment_time ${SEG_LENGTH_SEC} \
          -c copy \
          "${in_dir}/${out_prefix}_%03d.${ext}" \
-         2>&1 \
-  | grep "Opening .* for writing" -c -
+         2>&1 | \
+  grep "Opening .* for writing" -c -
 )
 
 # File to output to, since we can't read and write to
 # the same file.
 readonly tmp_fn="$(mktemp --suffix ".${ext}")"
 
-## Second, prepend chunk description audio to each file.
+# Second, prepend chunk description audio to each file.
 for (( i=0; i<${seg_count}; ++i )); do
   echo "Prepending description to segment $((i+1)) of ${seg_count}."
 
