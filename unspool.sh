@@ -51,4 +51,4 @@ for (( i=0; i<${seg_count}; ++i )); do
   cp -f "${tmp_fn}" "${cur_path}"
 done
 
-echo -e "\e[1A\e[K[Done] Prepending descriptions to segments."
+echo -e "\e[1A\e[K[Done] Processing segments."
